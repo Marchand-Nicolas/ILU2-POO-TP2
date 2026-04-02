@@ -12,14 +12,13 @@ import personnages.Chef;
 import villagegaulois.Village;
 
 class ControlPrendreEtalTest {
-	private Village village;
 	private ControlPrendreEtal controlPrendreEtal;
 	private ControlTrouverEtalVendeur controlTrouverEtalVendeur;
 	
 	@BeforeEach
 	public void initialiserSituation() {
 		System.out.println("Initialisation...");
-		village = new Village("Le village des irréductibles", 10, 5);
+		Village village = new Village("Le village des irréductibles", 10, 5);
 		Chef abra = new Chef("abra", 10, village);
 		village.setChef(abra);
 		ControlVerifierIdentite controlVerifierIdentite = new ControlVerifierIdentite(village);
