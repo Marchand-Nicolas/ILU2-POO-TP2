@@ -11,13 +11,12 @@ import villagegaulois.Village;
 
 class ControlVerifierIdentiteTest {
 	private Village village;
-	private Chef abra;
 	
 	@BeforeEach
 	public void initialiserSituation() {
 		System.out.println("Initialisation...");
 		village = new Village("Le village des irréductibles", 10, 5);
-		abra = new Chef("abra", 10, village);
+		Chef abra = new Chef("abra", 10, village);
 		village.setChef(abra);
 	}
 	
