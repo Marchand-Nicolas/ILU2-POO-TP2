@@ -10,6 +10,7 @@ import controleur.ControlPrendreEtal;
 import controleur.ControlTrouverEtalVendeur;
 import controleur.ControlVerifierIdentite;
 import personnages.Chef;
+import personnages.Gaulois;
 import villagegaulois.Village;
 
 class ControlAcheterProduitTest {
@@ -48,5 +49,19 @@ class ControlAcheterProduitTest {
 		controlPrendreEtal.prendreEtal("abra", "pomme", 5);
 		assertEquals(3, controlAcheterProduit.acheterProduit(abra, 3));
 		assertEquals(2, controlAcheterProduit.acheterProduit(abra, 3));
+	}
+	
+	@Test
+	public void testListerVendeursProduit() {
+		controlPrendreEtal.prendreEtal("abra", "pomme", 5);
+		Gaulois[] attendus = { abra };
+		assertArrayEquals(attendus, controlAcheterProduit.listerVendeursProduit("pomme"));
+	}
+	
+	@Test
+	public void testAfficherVendeursProduit() {
+		assertEquals("", controlAcheterProduit.afficherVendeursProduit("pomme"));
+		controlPrendreEtal.prendreEtal("abra", "pomme", 5);
+		assertEquals(" - 1 abra\n", controlAcheterProduit.afficherVendeursProduit("pomme"));
 	}
 }
